@@ -1,0 +1,89 @@
+P0: [Normal] 1.实验内容：部署opengauss /GaussDB，并完成前后端分离Web应用的开发与部署
+P1: [Normal] 
+P2: [Normal] 2.实验要求：
+P3: [List Paragraph] 采用容器化技术在华为云开发者空间部署伪分布式opengauss/GaussDB数据库服务；
+P4: [List Paragraph] 使用Java或Python开发前后端分离的Web应用，但必须要有完整的功能及界面。
+P5: [List Paragraph] Web应用程序前端界面可以相对简单，但必须完整，每个前端UI元素要有对应后台对应的处理逻辑。
+P6: [List Paragraph] Web应用程序后端代码要对opengauss/GaussDB数据库进行读写支持。建议优先使用Spark、Flink等大数据处理框架对opengauss/GaussDB进行读写。
+P7: [List Paragraph] Web应用程序前后端都要通过dockerfile文件制作成容器镜像，并在华为云开发者空间中进行容器化部署、测试
+P8: [List Paragraph] 总结和整理以上项目中的配置和使用步骤，撰写实验报告。
+P9: [List Paragraph] 
+P10: [Normal] 检查及提交形式
+P11: [Normal] （1）2026年6月14日-2026年6月18之间线下检查（时间地点另外通知）
+P12: [Normal] （2）检查后修改实验报告电子版（（包含关键实验步骤、演示过程和结果），并将源代码、配置文件、部署说明文档等一起打包命名为：班级+姓名+学号，提交到老师指定的邮箱 37737892@qq.com。
+P13: [Normal] （3）检查后的材料提交时间：截至 2026年6月20日 23：59：59
+P14: [Normal] 
+P15: [Normal] 参考资料
+P16: [Normal] 使用源代码方式部署gaussDB
+P17: [Normal] https://www.cnblogs.com/jerrywang1983/articles/18846076
+P18: [Normal] https://blog.csdn.net/weixin_42350014/article/details/148363795
+P19: [Normal] https://support.huawei.com/enterprise/zh/doc/EDOC1100370291?idPath=22658044|22662728
+P20: [Normal] https://devstation.connect.huaweicloud.com/space/devportal/casecenter/ca5633bc6cd64657b11a416032653a1e/1
+P21: [Normal] 
+P22: [Normal] （2）使用docker部署gaussDB, 
+P23: [Normal] https://www.cnblogs.com/lvjinlin/p/18747389
+P24: [Normal] （3）使用docker打包并部署应用，请参考
+P25: [Normal] 打包java应用： https://blog.csdn.net/qq_45637260/article/details/130325344
+P26: [Normal] 打包python应用： 
+P27: [Normal] https://www.jb51.net/server/30524788n.htm
+P28: [List Paragraph] 
+P29: [List Paragraph] 
+P30: [Normal] 实验报告格式详见下文
+P31: [List Paragraph] 
+P32: [List Paragraph] 
+P33: [Normal] 
+P34: [Normal] 
+P35: [Normal] 《大数据与云计算技术》
+P36: [Normal] 
+P37: [Normal] 本科生课程实验报告
+P38: [Normal] 
+P39: [Normal] 
+P40: [Normal] 
+P41: [Normal] 
+P42: [Normal] 
+P43: [Normal] 
+P44: [Normal] 
+P45: [Normal] 
+P46: [Normal] 
+P47: [Normal] 
+P48: [Normal] 
+P49: [Normal] 
+P50: [Normal] 
+P51: [Normal] 
+P52: [Normal] 武汉大学计算机学院
+P53: [Normal] 年  月  日
+P54: [Normal] 
+P55: [Normal] 
+P56: [Normal] 
+P57: [Plain Text] 目 录
+P58: [Normal] 
+P59: [Normal] 1 概述
+P60: [Normal] 1.1 课程选题背景（或需求分析）
+P61: [Normal] 1.2 课程实验内容
+P62: [Normal] 
+P63: [Normal] 2 系统设计与实现
+P64: [Normal] 2.1 系统架构设计
+P65: [Plain Text] 2.2 系统技术选型
+P66: [Plain Text] 2.3 功能模块设计与实现
+P67: [Plain Text] 
+P68: [Plain Text] 3 应用部署（章节小标题自拟）
+P69: [Plain Text] 3.1 部署opengauss /GaussDB
+P70: [Plain Text] 3.2 部署前端/后端应用
+P71: [Plain Text] 
+P72: [Plain Text] 4 测试评估（章节小标题自拟）
+P73: [Plain Text] 
+P74: [Plain Text] 5 总结
+P75: [Plain Text] 5.1 项目开发的挑战与应对方法
+P76: [Plain Text] 
+P77: [Plain Text] 5.2 项目部署存在的问题与不足
+P78: [Plain Text] 
+P79: [Plain Text] 5.3 项目展望与学习心得
+P80: [Plain Text] 
+P81: [Plain Text] 参考文献
+
+=== Table 0 ===
+  Row0: 题目： | 
+  Row1: 专业： | 
+  Row2: 班级： | 
+  Row3: 姓名： | 
+  Row4: 学号： | 

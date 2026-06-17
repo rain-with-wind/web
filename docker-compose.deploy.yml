@@ -1,0 +1,57 @@
+# 镜像部署专用编排文件
+# 配合 docker load -i student-system.tar 使用
+# 对方不需要任何源码
+
+services:
+  gaussdb:
+    image: postgres:15-alpine
+    container_name: gaussdb
+    environment:
+      POSTGRES_USER: gaussuser
+      POSTGRES_PASSWORD: GaussDB@123
+      POSTGRES_DB: studentdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - gaussdb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "gaussuser", "-d", "studentdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app-network
+
+  backend:
+    image: web-backend:latest
+    container_name: student-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: gaussdb
+      DB_PORT: "5432"
+      DB_NAME: studentdb
+      DB_USER: gaussuser
+      DB_PASSWORD: GaussDB@123
+    depends_on:
+      gaussdb:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  frontend:
+    image: web-frontend:latest
+    container_name: student-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  gaussdb_data:
+
+networks:
+  app-network:
+    driver: bridge

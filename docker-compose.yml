@@ -1,0 +1,67 @@
+services:
+  # ============================
+  # 数据库 (本地: PostgreSQL / 华为云: openGauss)
+  # ============================
+  gaussdb:
+    image: postgres:15-alpine
+    container_name: gaussdb
+    environment:
+      POSTGRES_USER: gaussuser
+      POSTGRES_PASSWORD: GaussDB@123
+      POSTGRES_DB: studentdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - gaussdb_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "gaussuser", "-d", "studentdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app-network
+
+  # ============================
+  # 后端 API 服务 (FastAPI)
+  # ============================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: student-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: gaussdb
+      DB_PORT: "5432"
+      DB_NAME: studentdb
+      DB_USER: gaussuser
+      DB_PASSWORD: GaussDB@123
+    depends_on:
+      gaussdb:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # ============================
+  # 前端 Web 服务 (Nginx)
+  # ============================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: student-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  gaussdb_data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,343 @@
+/* ===================================
+   学生信息管理系统 - 样式
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* 头部 */
+header {
+    text-align: center;
+    padding: 32px 0 24px;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+header .subtitle {
+    color: #888;
+    font-size: 14px;
+}
+
+/* 操作栏 */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    max-width: 480px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #4096ff;
+    box-shadow: 0 0 0 2px rgba(64, 150, 255, 0.1);
+}
+
+/* 按钮 */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #4096ff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #1677ff;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    color: #666;
+    border: 1px solid #d9d9d9;
+}
+
+.btn-cancel:hover {
+    background: #e8e8e8;
+}
+
+.btn-danger {
+    background: #ff4d4f;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #ff1a1f;
+}
+
+.btn-edit {
+    background: #1677ff;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.btn-edit:hover {
+    background: #0958d9;
+}
+
+.btn-del {
+    background: #ff4d4f;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.btn-del:hover {
+    background: #ff1a1f;
+}
+
+#searchBtn {
+    background: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    color: #555;
+}
+
+#searchBtn:hover {
+    background: #e8e8e8;
+}
+
+/* 表格 */
+.table-wrapper {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+thead th {
+    background: #fafafa;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    color: #666;
+    border-bottom: 1px solid #f0f0f0;
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:hover {
+    background: #fafafa;
+}
+
+.empty-row td {
+    text-align: center;
+    color: #999;
+    padding: 40px 12px;
+}
+
+/* 分页 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    color: #333;
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.pagination button:hover:not(:disabled) {
+    border-color: #4096ff;
+    color: #4096ff;
+}
+
+.pagination button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination button.active {
+    background: #4096ff;
+    border-color: #4096ff;
+    color: #fff;
+}
+
+.pagination span {
+    color: #666;
+    font-size: 13px;
+}
+
+/* 模态框 */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 8px;
+    width: 560px;
+    max-width: 90vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-small {
+    width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    color: #1a1a2e;
+}
+
+.modal-close {
+    background: none;
+    font-size: 22px;
+    color: #999;
+    padding: 4px;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+form {
+    padding: 20px 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.required {
+    color: #ff4d4f;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4096ff;
+    box-shadow: 0 0 0 2px rgba(64, 150, 255, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.confirm-text {
+    padding: 24px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.confirm-text span {
+    font-weight: 600;
+    color: #ff4d4f;
+}

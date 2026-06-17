@@ -126,12 +126,29 @@ nohup python3 -m http.server 3000 > /var/log/frontend.log 2>&1 &
 ## 常用命令
 
 ```bash
-docker compose up -d              # 启动所有服务
-docker compose ps                 # 查看运行状态
-docker compose logs backend       # 查看后端日志
-docker compose down               # 停止并删除容器
-docker compose up -d --build      # 改代码后重新构建启动
+# === 启动 ===
+docker compose up -d              # 首次启动（构建镜像 + 创建容器 + 启动）
+docker compose start              # 再次启动已存在的容器（不会重建）
 
-# 直连数据库
+# === 停止 ===
+docker compose stop               # 停止容器（容器还在，数据还在）
+docker compose down               # 停止并删除容器（数据还在，volume 保留）
+
+# === 重启容器（不在 compose 管理下的独立容器） ===
+docker start gaussdb student-backend student-frontend
+
+# === 查看 ===
+docker compose ps                 # 查看运行状态
+docker ps -a                      # 查看所有容器（含已停止的）
+docker compose logs backend       # 查看后端日志
+
+# === 更新 ===
+docker compose up -d --build      # 改代码后重新构建并启动
+
+# === 清理僵尸容器 ===
+docker rm -f gaussdb student-backend student-frontend   # 删掉旧容器
+docker compose up -d                                      # 重建
+
+# === 数据库 ===
 docker exec -it gaussdb psql -U gaussuser -d studentdb -c "SELECT * FROM students;"
 ```
